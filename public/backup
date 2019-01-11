@@ -1,0 +1,19 @@
+
+
+
+            id = getJson("../apiCaller/apiCaller.single.php?road=2"); 
+			$(function() {
+				$("#traffic_sin").empty();
+				$.each(id, function(i, item) {
+					$("#traffic_sin").append(  
+					$('<tr></tr>'),
+            		//$('<td>').text(item.id),
+            		$('<td>').text(item.road),
+					$('<td>').text(item.traffic_conditions),
+					$('<td>').text(item.incident),
+					$('<td>').text(item.incident_type),
+					$('<td>').text(item.last_updated),	
+					); //.appendTo('#records_table');$
+				});
+				console.log($("#traffic_sin").html());
+				});

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>WIDGET</title>
+	<link href="../css/w3.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+</head>
+<body>
+
+	<div class="w3-container">
+		<p><br/></p>
+		<h1>WEATHER</h1>
+		<table class="w3-table w3-bordered w3-striped">
+			<thead>
+				<tr class="w3-green">
+					<th>Date</th>
+					<th>Temperature</th>
+					<th>Weather Condition</th>
+					<th>Humadity</th>
+					<th>Chance Of Rain</th>
+				</tr>
+			</thead>
+			<tbody id="weather">
+				<tr>
+					<td>[[date]]</td>
+					<td>[[temperature]]&#8451</td>
+					<td>[[weather_condition]]</td>
+					<td>[[humidity]]%</td>
+					<td>[[chance_of_rain]]%</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<div class="w3-container">
+		<p><br/></p>
+		<h1>TRAFFIC</h1>
+		
+		<br />
+		<div class="container" style="width:600px;">
+			<h2 align=center>"Select The Road You Want" </h2> <br />
+			<select name="road" id="road" class="form-control input-lg" method="POST" action="../apiCaller/test.php">
+				<option value="">Select Road</option>
+			</select>
+		</div>
+		
+		<button onclick="ShowTable()">Show All</button>
+		
+		<table class="w3-table w3-bordered w3-striped" id="traffic_single" style="display:none">
+			<thead>
+				<tr class="w3-green">
+					<!--<th>ID</th>-->
+					<th>Road</th>
+					<th>Traffic Conditions</th>
+					<th>Accident</th>
+					<th>Accident Desc</th>
+					<th>Last Updated</th>
+				</tr>
+			</thead>
+			<tbody id="traffic_sin">
+				<tr>
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="w3-table w3-bordered w3-striped" id="traffic_table" style="display:none">
+			<thead>
+				<tr class="w3-green">
+					<!--<th>ID</th>-->
+					<th>Road</th>
+					<th>Traffic Conditions</th>
+					<th>Accident</th>
+					<th>Accident Desc</th>
+					<th>Last Updated</th>
+				</tr>
+			</thead>
+			<tbody id="traffic">
+				<tr>
+					<!--<td>[[id]]</td>-->
+					<td>[[road]]</td>
+					<td>[[traffic_conditions]]</td>
+					<td>[[incident]]</td>
+					<td>[[incident_type]]</td>
+					<td>[[last_updated]]</td>
+				</tr>
+			</tbody>
+		</table>
+	
+	</div>
+		
+	<script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+	<script src="../jquery/jquery.min.js"></script>
+	<script src="../jquery/jquery.miranda.js"></script>
+    <script src="../jquery/jquery.miranda.min.js"></script>
+    <script> 
+	var id;
+	function getJson(url) {
+		return JSON.parse($.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'json',
+			global: false,
+			async:false,
+			success: function(data) {
+				return data;
+			}
+		}).responseText);
+	   }
+	   var data = getJson('../apiCaller/apiCaller.weather.php'); 
+	   var data2 = getJson('../apiCaller/apiCaller.traffic.php');
+
+	   $("#weather").mirandajs(data);
+	   $("#traffic").mirandajs(data2);
+	   
+
+	</script>
+
+	<script src ="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			load_json_data($(road).get(0),'../apiCaller/apiCaller.traffic.php','road');
+			function load_json_data(selobj,url,nameattr)
+			{
+				//$(selobj).empty();
+				$.getJSON(url,{},function(data)
+				{
+					$.each(data, function(i,obj)
+					{
+						$(selobj).append(
+							 $('<option></option>')
+									.val(obj[nameattr])
+									.val(obj['id'])
+									.html(obj[nameattr]));
+					});
+				});
+			}
+		});
+
+		$(document).on('change', '#road', function(){
+			var y = document.getElementById("traffic_single");
+			y.style.display ="block";
+			//y.reset();
+			var road = $(this).val();
+			//window.alert(road);
+			//window.location.href = "../apiCaller/test.php?road="+road;
+			
+			get_single_json("#traffic_sin","../apiCaller/apiCaller.single.php?road="+road);
+			function get_single_json(field,url)
+			{
+				$(field).empty();
+				$.getJSON(url,{},function(data2)
+				{
+					$.each(data2, function(i, item) 
+					{
+					$("#traffic_sin").append(  
+						$('<tr></tr>'),
+            			//$('<td>').text(item.id),
+            			$('<td>').text(item.road),
+						$('<td>').text(item.traffic_conditions),
+						$('<td>').text(item.incident),
+						$('<td>').text(item.incident_type),
+						$('<td>').text(item.last_updated)
+					);
+					});
+				});
+			}
+			
+		});				 
+			//var print = JSON.stringify(id);
+			//
+			//window.alert(print);
+			//return id;		
+		
+	</script>
+
+	<script>
+	function ShowTable() {
+	var x = document.getElementById("traffic_table");
+	var y = document.getElementById("traffic_single");
+    if (x.style.display === "none") {
+		x.style.display = "block"; 
+		y.style.display ="none";
+    } else {
+        x.style.display = "none";
+		//$("#traffic").empty(); 
+    }
+	}
+	
+	</script>
+</body>
+</html>
