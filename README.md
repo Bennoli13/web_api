@@ -1,4 +1,4 @@
-# Web-Security--OAuth--API--Database-
+# Web Security [OAuth, API, Database Implementation] 
 This is the project of course Information Web Security. 
 <h2><strong>PROJECT TITLE : WEATHER AND TRAFFIC MONITORING SYSTEM</strong></h2>
 <h3><strong><em>BACKGORUND&nbsp;</em></strong></h3>
