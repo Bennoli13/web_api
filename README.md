@@ -37,7 +37,7 @@ This is the project of course Information Web Security.
 <h3 style="font-weight: 400;"><strong><em>IMPLEMENTATION</em></strong></h3>
 <p>In this project, we use REST API to provide data. These two services are implemented by using a SLIM framework.</p>
 <p>Weather service : http://XX.XX.XX.XX/api/weather <br />Traffic service : <a href="http://XX.XX.XX.XX/test_traffic/services/roads">http://XX.XX.XX.XX/test_traffic/services/roads</a></p>
-<p><img src="https://drive.google.com/file/d/1ISJ-_7etgAmXnPoxytdjQvBgEKJqSyOq/view" alt="Database " width="711" height="156" /></p>
+<p><img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fmedia.wired.com%2Fphotos%2F598e35fb99d76447c4eb1f28%2Fmaster%2Fpass%2Fphonepicutres-TA.jpg&imgrefurl=https%3A%2F%2Fwww.wired.com%2Fstory%2Fstay-in-the-moment-take-a-picture%2F&docid=Mcaww4JtA8IBqM&tbnid=Gw1vgpzIucJQhM%3A&vet=10ahUKEwic-tCIjP_fAhUQPrwKHVq9Bx8QMwhKKAAwAA..i&w=2400&h=1800&bih=939&biw=1680&q=PICTURE&ved=0ahUKEwic-tCIjP_fAhUQPrwKHVq9Bx8QMwhKKAAwAA&iact=mrc&uact=8" alt="Database " width="711" height="156" /></p>
 <p><span style="font-weight: 400;"><img src="https://drive.google.com/file/d/184V0xklvUxmtchfQFdycX6WCrNZuYlPa/view?usp=sharing" alt="System Architecture" /><br style="font-weight: 400;" />&nbsp;</span></p>
 <h3><strong><em>CONCLUSION</em></strong></h3>
 <ol style="font-weight: 400;">
