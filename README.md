@@ -38,7 +38,7 @@ This is the project of course Information Web Security.
 <h3 style="font-weight: 400;"><strong><em>IMPLEMENTATION</em></strong></h3>
 <p>In this project, we use REST API to provide data. These two services are implemented by using a SLIM framework.</p>
 <p>Weather service : http://XX.XX.XX.XX/api/weather <br />Traffic service : <a href="http://XX.XX.XX.XX/test_traffic/services/roads">http://XX.XX.XX.XX/test_traffic/services/roads</a></p>
-<p><img src="https://drive.google.com/open?id=1ISJ-_7etgAmXnPoxytdjQvBgEKJqSyOq" alt="Database " width="711" height="156" /></p>
+<p><img src="https://drive.google.com/file/d/1ISJ-_7etgAmXnPoxytdjQvBgEKJqSyOq/view?usp=sharing" alt="Database " width="711" height="156" /></p>
 <p><span style="font-weight: 400;"><img src="https://drive.google.com/open?id=184V0xklvUxmtchfQFdycX6WCrNZuYlPa" alt="System Architecture" /><br style="font-weight: 400;" />&nbsp;</span></p>
 <h3><strong><em>CONCLUSION</em></strong></h3>
 <ol style="font-weight: 400;">
